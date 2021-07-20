@@ -42,6 +42,15 @@ class LinkedList:
       nodes_remaining -= 1
 
     return result
+
+# remove duplicates from list
+  def remove_duplicates(self):
+    current_node = self.head
+    while current_node:
+      while current_node.next and current_node.next.val == current_node.val:
+        current_node.next = current_node.next.next
+      current_node = current_node.next
+    return self
     
   def traverse(self):
     head = self.head
