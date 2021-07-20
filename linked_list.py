@@ -8,6 +8,27 @@ class LinkedList:
     new_head = Node(val)
     new_head.next = self.head
     self.head = new_head
+
+  def insert(self, node_value, location):
+    if not location:
+      new_head = Node(node_value)
+      new_head.next = self.head
+      self.head = new_head
+      return self
+
+    prev = self.head
+    node = Node(node_value)
+    current_node = self.head.next
+
+    while location > 1:
+      prev = current_node
+      current_node = current_node.next
+      location -= 1
+    
+    prev.next = node
+    node.next = current_node
+
+    return self
     
   def traverse(self):
     head = self.head
