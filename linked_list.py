@@ -29,6 +29,19 @@ class LinkedList:
     node.next = current_node
 
     return self
+
+# get nth element from last
+  def n_from_last(self, n):
+    if n > self.size():
+      return None
+    nodes_remaining = self.size() - 1 - n
+    result = self.head 
+
+    while nodes_remaining:
+      result = result.next
+      nodes_remaining -= 1
+
+    return result
     
   def traverse(self):
     head = self.head
